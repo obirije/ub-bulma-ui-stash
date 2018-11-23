@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Select from 'react-select';
 import axios from 'axios';
 
+import { Link } from 'react-router-dom';
+
 const fiatCurr = [
   { value: 'NGN', label: 'NGN' },
   { value: 'USD', label: 'USD' }
@@ -21,7 +23,7 @@ export default class Hero extends Component {
         cryptoAmount: '0.00',
         BTC_USD: null,
         ETH_USD: null,
-        ngnRate: 360
+        ngnRate: 363
       }
 
       handleFiatChange = (selectedOption) => {
@@ -62,12 +64,12 @@ export default class Hero extends Component {
 
             if(toCurr === 'BTC'){
                 const rate = this.state.BTC_USD ? this.state.BTC_USD : 0;
-                return amount * rate;
+                return amount / rate;
             }
 
             if(toCurr === 'ETH'){
                 const rate = this.state.ETH_USD ? this.state.ETH_USD : 0;
-                return amount * rate;
+                return amount / rate;
             }
         }
 
@@ -135,8 +137,8 @@ export default class Hero extends Component {
                     <h2>Buy Bitcoin using a credit or debit card </h2>
                     <p class="m-t-40"><span class="font-bold">Fast, Easy </span> and <span class="font-bold">Secure</span></p>
                     <div>
-                        <a href="#demos" class="waves-effect waves-light btn blue accent-4 m-t-40 m-b-40 dm-btn">Login</a>
-                        <a href="https://themeforest.net/item/materialart-powerful-material-admin-template/22511427?ref=Maruti" class="waves-effect waves-light btn indigo darken-1 m-t-40 m-b-40 m-l-10">Register</a>
+                        <Link to="login" class="waves-effect waves-light btn blue accent-4 m-t-40 m-b-40 dm-btn">Login</Link>
+                        <Link to="register" class="waves-effect waves-light btn indigo darken-1 m-t-40 m-b-40 m-l-10">Register</Link>
                     </div>
                     <img src="static/assets/images/cc.png" width="150" alt="logos" />
                 </div>

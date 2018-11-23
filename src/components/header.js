@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom'; 
 import logo from '../logo.svg';
 import Hero from './hero';
 
@@ -16,13 +17,13 @@ export default class Header extends Component {
                         <ul class="right hide-on-med-and-down m-r-40">
                             <li><a href="#demos">About</a></li>
                             <li>
-                                <a href="#" target="_blank">Login</a>
+                                <NavLink to="/login" target="_blank">Login</NavLink>
                             </li>
                         </ul>
                          <ul class="sidenav sml-font" id="mobile-demo">
                             <li><a href="#demos">About</a></li>
                             <li>
-                                <a href="#" target="_blank">Login</a>
+                                <NavLink to="login" target="_blank">Login</NavLink>
                             </li>
                         </ul>
                     </div>
