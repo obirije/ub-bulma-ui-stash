@@ -38,6 +38,10 @@
     box-shadow: 0 14px 24px rgba(62, 57, 107, 0.1); 
 }
 
-.cvt-select {
-  margin-right: 0px;
+@media screen and (max-width: 1087px){
+  #navMenu {
+      background-color: #6666cc;
+      box-shadow: 0 8px 16px rgba(10,10,10,0.1);
+      padding: 0.5rem 0;
+  }
 }

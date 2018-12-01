@@ -1,69 +1,81 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
+import Header from '../header';
+
+import Footer from '../footer';
+
 export default class Register extends Component {
     constructor(props){
         super(props)
     }
 
-
-
   render() {
 
     return(
-      <div className="auth-wrapper d-flex no-block justify-content-center align-items-center" style={{background: 'url(../../assets/images/big/auth-bg.jpg) no-repeat center center'}}>
-        <div className="auth-box">
-          <div id="loginform">
-            <div class="logo">
-                <h5 class="font-medium m-b-20">Register an Account</h5>
+        <div>
+            <div class="hero is-light-grey is-fullheight">
+
+                <Header />
+
+                <div id="main-hero" class="hero-body">
+                    <div class="container">
+                        <div class="columns is-vcentered">
+                            <div class="column is-5 is-offset-1 is-hidden-mobile">
+                                <div class="flex-card clean-signup-info padding-20">
+                                    <h2 class="has-text-centered clean-text">Get started</h2>
+                                    <div class="feature">
+                                        <img src="static/assets/images/illustrations/icons/landing-v1/business-ready.svg" alt="" />
+                                        <div class="feature-text">Register with your basic details, so we can know you</div>
+                                    </div>
+                                    <div class="feature">
+                                        <img src="static/assets/images/illustrations/icons/landing-v1/credit-card.svg" alt="" />
+                                        <div class="feature-text">Select cryptocurrency you want to purchase and enter you card for payment</div>
+                                    </div>
+                                    <div class="feature">
+                                        <img src="static/assets/images/illustrations/icons/landing-v1/components.svg" alt="" />
+                                        <div class="feature-text">Get your coins instantly within minutes on your wallet address</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="column is-6">
+                                <div id="signup-card" class="animated preFadeInLeft fadeInLeft">
+                                    <div class="flex-card clean-signup-card">
+                                        <h2 class="has-text-centered">Sign up</h2>
+                                        <form>
+                                            <div class="control-material is-primary">      
+                                                <input class="material-input" type="text" required />
+                                                <span class="material-highlight"></span>
+                                                <span class="bar"></span>
+                                                <label>Email *</label>
+                                            </div>
+                                            <div class="control-material is-primary">      
+                                                <input class="material-input" type="text" required />
+                                                <span class="material-highlight"></span>
+                                                <span class="bar"></span>
+                                                <label>Full name *</label>
+                                            </div>
+                                            <div class="control-material is-primary">      
+                                                <input class="material-input" type="text" required />
+                                                <span class="material-highlight"></span>
+                                                <span class="bar"></span>
+                                                <label>Password *</label>
+                                            </div>
+            
+                                            <div class="mt-20">
+                                                <button class="button button-cta btn-align primary-btn is-fullwidth raised no-lh">Get started now</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="row">
-                <form class="col s12" action="index.html">
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input id="name" type="text" class="validate" required />
-                            <label for="name">Name</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input id="email" type="email" class="validate" required />
-                            <label for="email">Email</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input id="password" type="password" class="validate" required />
-                            <label for="password">Password</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input id="cpassword" type="password" class="validate" required />
-                            <label for="cpassword">Password</label>
-                        </div>
-                    </div>
-                    <div class="row m-t-5">
-                        <div class="col s7">
-                            <label>
-                                <input type="checkbox" />
-                                <span>Agree to all Terms</span>
-                            </label>
-                        </div>
-                    </div>
-                    <div class="row m-t-40">
-                        <div class="col s12">
-                            <button class="btn-large w100 red" type="submit">Sign Up</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <div class="center-align m-t-20 db">
-                Already have an account? <Link to="login" >Login</Link>
-            </div>
-          </div>
+
+            <Footer />
         </div>
-      </div>
     )
   } 
 

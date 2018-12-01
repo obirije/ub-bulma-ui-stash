@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import DashboardNav from '../dashboard-nav';
 
 export default class Dashboard extends Component {
 	constructor(props){
@@ -11,7 +11,8 @@ export default class Dashboard extends Component {
 	render(){
 
 		return(
-			<h3>Dashboard</h3>
+			
+			<DashboardNav />
 		)
 	}
 }

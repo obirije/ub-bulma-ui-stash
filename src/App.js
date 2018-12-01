@@ -9,6 +9,7 @@ import Dashboard from './components/dashboard-component/dashboard';
 import Activity from './components/activity-component/activity';
 import Profile from './components/profile-component/profile';
 import Buy from './components/buy-component/buy';
+import Footer from './components/footer';
 
 
 import { HashRouter as Router, Route, Link, Switch, withRouter } from 'react-router-dom';
@@ -54,7 +55,8 @@ export default class App extends Component {
 const HomePage = (props) => {
 	return(
 		<div id="main-wrapper">
-          <Header />
+          <Header page={'landing'} />
+          <Footer />
       </div>
 	)
 }
