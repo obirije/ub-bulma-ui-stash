@@ -1,112 +1,87 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import OtherPagesNav from './other-pages-nav';
 
 
 export default class DashboardNav extends Component {
+	constructor(props){
+		super(props)
+
+		this.state = {
+            isSideNavActive: false
+        }
+	}
+
+	openSideNav = () => {
+        this.setState({
+            isSideNavActive: !this.state.isSideNavActive
+        })
+    }
+
 
 	render(){
 
 		return(
 			<div>
-				<header class="topbar">
-				    <nav style={{ background: '#2962FF'}} >
-				        <div class="nav-wrapper">
-				            <a href="javascript:void(0)" class="brand-logo">
-				                <span class="text">
-				                    <img class="light-logo" src="static/assets/images/unclebanks-alt.png" width="100" 
-				                    	style={{ paddingTop: '25px', paddingLeft: '10px'}} />
-				                </span>
-				            </a>
-				            <ul class="left">
-				                <li class="hide-on-med-and-down">
-				                    <a href="" class="nav-toggle">
-				                        <span class="bars bar1"></span>
-				                        <span class="bars bar2"></span>
-				                        <span class="bars bar3"></span>
-				                    </a>
-				                </li>
-				                <li class="hide-on-large-only">
-				                    <a href="javascript: void(0);" class="sidebar-toggle">
-				                        <span class="bars bar1"></span>
-				                        <span class="bars bar2"></span>
-				                        <span class="bars bar3"></span>
-				                    </a>
-				                </li>
-				                <li class="search-box">
-				                    <a><i class="material-icons">search</i></a>
-				                    <form class="app-search">
-				                        <input type="text" class="form-control" placeholder="Search &amp; enter" /> <a class="srh-btn"><i class="fas fa-times"></i></a>
-				                    </form>
-				                </li>
-				            </ul>
-				            <ul class="right">
-				    
-				                <li><a class="dropdown-trigger" href="javascript: void(0);" data-target="user_dropdown"><img src="static/assets/images/user-avater.jpg" alt="user" class="circle profile-pic" /></a>
-				                    <ul id="user_dropdown" class="mailbox dropdown-content dropdown-user">
-				                        <li>
-				                            <div class="dw-user-box">
-				                                <div class="u-img"><img src="static/assets/images/user-avater.jpg" alt="user" /></div>
-				                                <div class="u-text">
-				                                    <h4>Steve Harvey</h4>
-				                                    <p>steve@gmail.com</p>
-				                                    <a class="waves-effect waves-light btn-small red white-text">View Profile</a>
-				                                </div>
-				                            </div>
-				                        </li>
-				                        <li role="separator" class="divider"></li>
-				                        <li><a href="#"><i class="material-icons">account_circle</i> My Profile</a></li>
-				                        <li><a href="#"><i class="material-icons">account_balance_wallet</i> My Balance</a></li>
-				                        <li><a href="#"><i class="material-icons">inbox</i> Inbox</a></li>
-				                        <li role="separator" class="divider"></li>
-				                        <li><a href="#"><i class="material-icons">settings</i> Account Setting</a></li>
-				                        <li role="separator" class="divider"></li>
-				                        <li><a href="#"><i class="material-icons">power_settings_new</i> Logout</a></li>
-				                    </ul>
-				                </li>
-				            </ul>
-				        </div>
-				    </nav>
-				</header>
 
+				<OtherPagesNav type={'dashboard'} > 
+					<a id="navigation-trigger" class="navbar-item hamburger-btn" onClick={this.openSideNav}>
+	                    <span class="menu-toggle">  
+	                        <span class={`icon-box-toggle ${this.state.isSideNavActive && 'active'}`}>  
+	                            <span class="rotate">
+	                                <i class="icon-line-top"></i>
+	                                <i class="icon-line-center"></i>
+	                                <i class="icon-line-bottom"></i> 
+	                            </span>
+	                        </span>
+	                    </span> Menu
+	                </a>
+				</OtherPagesNav>
 
-				<aside class="left-sidebar content-space">
-			        <ul id="slide-out" class="sidenav" data-sidebarbg="skin6">
-			            <li class="side-wrap">
-			                <ul class="collapsible">
-			                    <li class="small-cap"><span class="hide-menu">PERSONAL</span></li>
-			                    <li>
-			                        <a href="/" class="collapsible-header"><i class="material-icons">dashboard</i><span class="hide-menu"> Dashboard</span></a>
-			                    </li>
+				<div class={`side-navigation-menu ${this.state.isSideNavActive && 'is-active'}`}>
+		            <div class="category-menu-wrapper">
+		                <ul class="categories">
+		                    <li class="square-logo"><img src="static/assets/images/unclebanks-alt.png" alt="" /></li>
+		                </ul>
+		        
+		                <ul class="author">
+		                    <li>
+		                        <a href="https://cssninja.io" target="_blank">
+		                            <img class="main-menu-author" src="assets/images/logos/cssninja.svg" alt="" />
+		                        </a>
+		                    </li>
+		                </ul>
+		            </div>
 
-			                    <li class="small-cap"><span class="hide-menu">Campaigns</span></li>
-			                    <li>
-			                        <a href="javascript: void(0);" class="collapsible-header has-arrow"><i class="material-icons">widgets</i><span class="hide-menu"> Campaigns </span></a>
-			                        <div class="collapsible-body">
-			                            <ul>
-			                                <li><router-link to="create-campaign"><i class="ti-pencil-alt"></i><span class="hide-menu">Create</span></router-link></li>
-			                                <li><router-link to="campaigns"><i class="ti-layers"></i><span class="hide-menu">View All</span></router-link></li>
-			                            </ul>
-			                        </div>
-			                    </li>
-			                    <li class="small-cap"><span class="hide-menu">Schedules</span></li>
-			                    <li class="multiple">
-			                        <router-link to="schedules" class="collapsible-header"><i class="ti-alarm-clock"></i><span class="hide-menu">Schedules</span></router-link>
-			                    </li>
-			                    <li>
-			                        <a href="javascript: void(0);" class="collapsible-header has-arrow two-column"><i class="material-icons">move_to_inbox</i><span class="hide-menu"> Login </span></a>
-			                        <div class="collapsible-body">
-			                            <ul>
-			                                <li><a href="/#/register"><i class="material-icons">receipt</i><span class="hide-menu">Register</span></a></li>
-			                                <li><a href="/#/login"><i class="material-icons">receipt</i><span class="hide-menu">Login</span></a></li>
-			                            </ul>
-			                        </div>
-			                    </li>
-			                </ul>
-			            </li>
-			        </ul>
-			    </aside>
+		            <div class="navigation-menu-wrapper animated preFadeInRight fadeInRight">
+		                
+		                <div class="navigation-menu-header">
+		                    <span>Main Menu</span>
+		                    <a class="ml-auto hamburger-btn navigation-close" onClick={this.openSideNav} style={{ opacity: '1'}}>
+		                        <span class="menu-toggle">  
+		                            <span class="icon-box-toggle active">  
+		                                <span class="rotate">
+		                                    <i class="icon-line-top"></i>
+		                                    <i class="icon-line-center"></i>
+		                                    <i class="icon-line-bottom"></i> 
+		                                </span>
+		                            </span>
+		                        </span>
+		                    </a>
+		                </div>
 
-		</div>
-
+		                <ul class="navigation-menu">
+		                	<li><Link class="parent-link" to="dashboard"><span class="material-icons">weekend</span>Home</Link></li>
+		                	<li><Link class="parent-link" to="buy"><span class="material-icons">monetization_on</span>Buy Coins</Link></li>
+		                	<li><Link class="parent-link" to="activities"><span class="material-icons">equalizer</span>Activities</Link></li>
+		                	<li><Link class="parent-link" to="profile"><span class="material-icons">account_circle</span>Account</Link></li>
+		                	<li><a class="parent-link" href="#"><span class="material-icons">keyboard_backspace</span>Sign out</a></li>
+		                </ul>
+                	</div>
+        		</div>
+        	</div>
 		)
 	}
 }
+
+// <li><a class="parent-link" href="#"><span class="material-icons">settings</span>Settings</a></li>

@@ -16,17 +16,19 @@ export default class OtherPagesNav extends Component {
                 <div class="container">
                     <div class="navbar-brand">
                         <a class="navbar-item" href="/">
-                            <img src="static/assets/images/unclebanks-alt.png" alt="" />
+                            <img src="static/assets/images/unclebanks.png" alt="" />
                         </a>
+
+                        { this.props.children }
             
-                        <button class="button primary-btn navbar-burger" data-target="navMenu" onClick={this.props.handleCloseClick}>
+                        { !this.props.type === 'dashboard' && <button class="button primary-btn navbar-burger" data-target="navMenu" onClick={this.props.handleCloseClick}>
                           <span></span>
                           <span></span>
                           <span></span>
-                        </button>
+                        </button> }
                     </div>
             
-                    <NavItems />
+                    <NavItems type={this.props.type} />
                 </div>
             </nav>
     )
